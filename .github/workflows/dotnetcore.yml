@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  AZURE_WEBAPP_NAME: gradior-customer    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.101'           # set this to the dot net version to use
+
 jobs:
   build:
 
@@ -16,7 +21,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.101
+        dotnet-version: ${{ env.DOTNET_VERSION }}
     - name: Install dependencies
       run: dotnet restore
     - name: Build
