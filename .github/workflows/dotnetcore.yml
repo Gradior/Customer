@@ -41,6 +41,9 @@ jobs:
       run: |
         dotnet build --configuration Release --no-restore
         dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/customer'
-        
+    
+    # Run dotnet test        
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    
+   
