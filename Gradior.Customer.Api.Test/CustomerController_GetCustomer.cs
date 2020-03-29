@@ -31,5 +31,16 @@ namespace Gradior.Customer.Api.Test
       Assert.NotNull(result);
       Assert.Equal(id, customer.CustomerId.ToString());
     }
+
+    [Fact]
+    public void GetCustomer_CustomersExist_ReturnsOkResultAndData()
+    {      
+      var result = controller.GetCustomers();
+
+      var customers = result.Value;
+
+      Assert.NotNull(result);
+      Assert.NotEmpty(customers);
+    }
   }
 }
