@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gradior.Customer.Api.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -19,16 +20,36 @@ namespace Gradior.Customer.Api.Controllers
     }
 
     [HttpGet]
-    public IActionResult GetCustomers() 
+    public ActionResult<IEnumerable<CustomerResponseModel>> GetCustomers() 
     {
-      return Ok();
+
+      var response = new List<CustomerResponseModel>
+      {
+        new CustomerResponseModel
+        {
+          CustomerId = Guid.NewGuid(),
+          FirstName = "Gimil",
+          SecondName = "Sin"
+        } 
+      };
+          
+      return response;
     }
 
     [HttpGet]
     [Route("{id}")]
-    public IActionResult GetCustomer([FromRoute] string id)
+    public ActionResult<CustomerResponseModel> GetCustomer([FromRoute] string id)
     {
-      return Ok();
+      _ = Guid.TryParse(id, out Guid result);
+
+      var response = new CustomerResponseModel 
+      {
+        CustomerId = result,
+        FirstName = "Gimil",
+        SecondName = "Sin"
+      };
+
+      return response;
     }
   }
 }
