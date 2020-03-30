@@ -12,5 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
 
 </Project>
