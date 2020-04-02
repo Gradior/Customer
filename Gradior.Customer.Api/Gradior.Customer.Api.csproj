@@ -11,9 +11,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
   </ItemGroup>
-
   <ItemGroup>
-    <WCFMetadata Include="Connected Services" />
+    <Folder Include="Connected Services\Application Insights\" />
   </ItemGroup>
 
 
